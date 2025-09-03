@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Projects } from '../../models/project';
-import { ProjectService } from '../../core/service/project';
-import { Skill } from "../skill/skill";
 import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-project',
-  imports: [Skill, CommonModule],
+  imports: [CommonModule],
   templateUrl: './project.html',
   styleUrl: './project.scss'
 })
@@ -82,7 +80,7 @@ projects: Projects[] = [
       technologies: ['HTML5', 'CSS3', 'Tailwind CSS', 'JavaScript', 'Chart.js', 'LocalStorage'],
       category: 'frontend',
       demoUrl: 'https://business-dashboard.beautero.dev',
-      githubUrl: 'https://github.com/Beautero-ks/business-dashboard',
+      githubUrl: 'https://github.com/Beautero-ks/Business-Dashboard',
       status: 'completed',
       rating: 4.6,
       duration: '1 months',
@@ -105,7 +103,7 @@ projects: Projects[] = [
       technologies: ['Angular', 'Tailwind CSS', 'TypeScript', 'SCSS'],
       category: 'frontend',
       demoUrl: 'https://beautero.dev',
-      githubUrl: 'https://github.com/Beautero-ks/portfolio',
+      githubUrl: 'https://github.com/Beautero-ks/my-portfolio',
       status: 'completed',
       rating: 4.9,
       duration: '1 month',
@@ -174,7 +172,7 @@ projects: Projects[] = [
       technologies: ['Spring Boot', 'MySQL', 'Redis', 'JWT', 'Swagger', 'Maven'],
       category: 'backend',
       demoUrl: '',
-      githubUrl: 'https://github.com/Beautero-ks/electronics-backend',
+      githubUrl: 'https://github.com/Beautero-ks/Easy-Market-Backend',
       status: 'completed',
       rating: 4.7,
       duration: '3 months',

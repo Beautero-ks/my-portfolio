@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { introduction, myJourney, skillsSection } from '../../../data';
 import { CommonModule } from '@angular/common';
+import { introduction, myJourney, skillsSection } from '../../../data';
 
 @Component({
   selector: 'app-about',
