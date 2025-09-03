@@ -177,9 +177,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.scrollProgress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
   }
 
-  /**
-   * Update scroll state for header styling
-   */
+
   private updateScrollState(): void {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     this.isScrolled = scrollTop > 10;
