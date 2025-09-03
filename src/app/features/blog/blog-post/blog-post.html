@@ -1,0 +1,40 @@
+<!-- <article class="p-8">
+  <h1 class="text-3xl font-bold">{{ post?.title }}</h1>
+  <div class="flex items-center space-x-2 text-sm mt-2 mb-5">
+    <span class="text-gray-300">By: {{ post?.author }}</span>
+    <p class="text-gray-500">{{ post?.date | date }}</p>
+  </div>
+  <p class="mt-4">{{ post?.content }}</p>
+</article> -->
+
+<article class="p-8 bg-slate-50 dark:bg-gray-950 min-h-screen">
+  <div
+    class="max-w-3xl mx-auto bg-white dark:bg-gray-800 rounded-2xl shadow-sm
+           ring-1 ring-blue-100 dark:ring-blue-900/40 p-8"
+  >
+    <h1
+      class="text-3xl font-extrabold text-blue-700 dark:text-blue-500
+             mb-3"
+    >
+      {{ post?.title }}
+    </h1>
+
+    <div class="flex items-center space-x-3 text-sm text-gray-500 dark:text-slate-400 mb-5">
+      <span class="flex items-center">
+        <svg class="w-4 h-4 mr-1 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2h-1V3a1 1 0 00-1-1H6z"/>
+          <path d="M18 9H2v7a2 2 0 002 2h12a2 2 0 002-2V9z"/>
+        </svg>
+        {{ post?.date | date }}
+      </span>
+      <span>•</span>
+      <span class="text-emerald-600 dark:text-emerald-400">
+        By {{ post?.author }}
+      </span>
+    </div>
+
+    <p class="text-gray-700 dark:text-slate-300 leading-relaxed">
+      {{ post?.content }}
+    </p>
+  </div>
+</article>

@@ -1,0 +1,64 @@
+<!-- <section class="p-8">
+  <h1 class="text-3xl font-bold mb-4">Blog</h1>
+  @for(post of posts; track post.id){
+    <div class="mb-4">
+      <a routerLink="/blog/{{post.id}}" class="text-xl font-semibold hover:underline">{{ post.title }}</a>
+      <p class="text-gray-500">{{ post.date | date }}</p>
+    </div>
+  }
+</section> -->
+
+<section class="p-8 bg-slate-50 dark:bg-gray-950 min-h-screen">
+  <h1 class="text-3xl font-extrabold text-blue-700 dark:text-blue-500 mb-6">
+    Blog
+  </h1>
+
+  <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <article
+      *ngFor="let post of posts; trackBy: trackPost"
+      class="group relative rounded-2xl bg-white dark:bg-gray-800 shadow-sm
+             ring-1 ring-blue-100 dark:ring-blue-900/40 hover:shadow-lg
+             transition-all overflow-hidden"
+    >
+      <!-- Status badge (example: featured post) -->
+      <div class="absolute top-3 right-3">
+        <span
+          class="px-2 py-1 text-xs font-medium text-white rounded-full
+                 bg-emerald-500"
+        >
+          Featured
+        </span>
+      </div>
+
+      <div class="p-6">
+        <h2
+          class="text-xl font-bold text-gray-900 dark:text-slate-100
+                 group-hover:text-blue-600 dark:group-hover:text-blue-400
+                 transition-colors duration-200 mb-2"
+        >
+          <a routerLink="/blog/{{post.id}}">{{ post.title }}</a>
+        </h2>
+
+        <div class="flex items-center space-x-2 text-sm text-gray-500 dark:text-slate-400 mb-3">
+          <span>By {{ post.author }}</span>
+          <span>•</span>
+          <span>{{ post.date | date }}</span>
+        </div>
+
+        <p
+          class="text-gray-600 dark:text-slate-300 text-sm leading-relaxed
+                 line-clamp-3"
+        >
+          {{ post.content }}
+        </p>
+      </div>
+
+      <!-- Hover underline effect -->
+      <div
+        class="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r
+               from-blue-500 to-emerald-500 transform scale-x-0
+               group-hover:scale-x-100 transition-transform duration-500 origin-left"
+      ></div>
+    </article>
+  </div>
+</section>
