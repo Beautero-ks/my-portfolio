@@ -1,0 +1,189 @@
+<!-- <nav class="bg-gray-800 dark:bg-gray-900 p-4 text-white">
+  <div class="flex justify-between items-center max-w-6xl mx-auto">
+    <h1 class="text-xl font-bold">Beauterofolio</h1>
+    <ul class="flex space-x-4">
+      <li><a routerLink="/" class="hover:text-blue-300">Home</a></li>
+      <li><a routerLink="/projects" class="hover:text-blue-300">Projects</a></li>
+      <li><a routerLink="/blog" class="hover:text-blue-300">Blog</a></li>
+      <li><a routerLink="/contact" class="hover:text-blue-300">Contact</a></li>
+      <li>
+        <app-button
+          [text]="themeService.isDarkModeActive() ? 'Light Mode' : 'Dark Mode'"
+          color="secondary"
+          (btnClick)="themeService.toggleTheme()"
+        ></app-button>
+      </li>
+    </ul>
+  </div>
+</nav> -->
+
+<header class="sticky top-0 z-50 backdrop-blur-xl bg-white/80 dark:bg-gray-900/80 border-b border-gray-200/20 dark:border-gray-700/20 transition-all duration-300">
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      
+      <!-- Logo/Brand Section -->
+      <div class="flex items-center space-x-4">
+        <div class="flex-shrink-0 group">
+          <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-400 dark:to-blue-600 bg-clip-text text-transparent hover:from-blue-500 hover:to-blue-700 transition-all duration-300 cursor-pointer">
+            Beautero ks
+          </h1>
+          <div class="h-0.5 bg-gradient-to-r from-blue-600 to-emerald-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+        </div>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:block">
+        <div class="flex items-center space-x-1">
+          <a 
+            *ngFor="let item of navigationItems" 
+            [routerLink]="item.route"
+            routerLinkActive="active-nav-link"
+            [routerLinkActiveOptions]="{exact: item.route === '/'}"
+            class="nav-link relative px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200 rounded-lg hover:bg-gray-100/50 dark:hover:bg-gray-800/50 group"
+            [attr.aria-label]="'Navigate to ' + item.label"
+          >
+            <span class="relative z-10 flex items-center space-x-2">
+              <ng-container [ngSwitch]="item.icon">
+                <!-- Home Icon -->
+                <svg *ngSwitchCase="'home'" class="w-4 h-4 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                </svg>
+                <!-- 'about' case -->
+                  <svg *ngSwitchCase="'about'" 
+                    class="w-4 h-4 group-hover:scale-110 transition-transform duration-200" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" 
+                        stroke-linejoin="round" 
+                        stroke-width="2" 
+                        d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20 10 10 0 000-20z" />
+                  </svg>
+
+                <!-- Projects Icon -->
+                <svg *ngSwitchCase="'projects'" class="w-4 h-4 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                </svg>
+                <!-- Blog Icon -->
+                <svg *ngSwitchCase="'blog'" class="w-4 h-4 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                </svg>
+                <!-- Contact Icon -->
+                <svg *ngSwitchCase="'contact'" class="w-4 h-4 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+              </ng-container>
+              <span>{{ item.label }}</span>
+            </span>
+            <!-- Active indicator -->
+            <div class="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-blue-500 to-emerald-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center rounded-full"></div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Theme Toggle & Mobile Menu -->
+      <div class="flex items-center space-x-4">
+        
+        <!-- Theme Toggle Switch -->
+        <div class="flex items-center">
+          <label class="relative inline-flex items-center cursor-pointer group" for="theme-toggle">
+            <input 
+              type="checkbox" 
+              id="theme-toggle"
+              [checked]="themeService.isDarkModeActive()" 
+              (change)="toggleTheme()"
+              class="sr-only peer"
+              [attr.aria-label]="themeService.isDarkModeActive() ? 'Switch to light mode' : 'Switch to dark mode'"
+            >
+            
+            <!-- Switch Background -->
+            <div class="relative w-14 h-7 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-600 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:rounded-full after:h-6 after:w-6 after:transition-all duration-300 peer-checked:bg-gradient-to-r peer-checked:from-blue-500 peer-checked:to-blue-600 shadow-inner group-hover:shadow-lg transition-all duration-300">
+              
+              <!-- Sun Icon (Light Mode) -->
+              <div class="absolute inset-0 flex items-center justify-start pl-1.5 opacity-100 peer-checked:opacity-0 transition-opacity duration-300">
+                <svg class="w-4 h-4 text-yellow-500 drop-shadow-sm" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
+                </svg>
+              </div>
+              
+              <!-- Moon Icon (Dark Mode) -->
+              <div class="absolute inset-0 flex items-center justify-end pr-1.5 opacity-0 peer-checked:opacity-100 transition-opacity duration-300">
+                <svg class="w-4 h-4 text-blue-200 drop-shadow-sm" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+                </svg>
+              </div>
+            </div>
+            
+            <!-- Toggle Label (Hidden on mobile) -->
+            <span class="hidden lg:block ml-3 text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200">
+              {{ themeService.isDarkModeActive() ? 'Dark' : 'Light' }}
+            </span>
+          </label>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden">
+          <button 
+            type="button"
+            (click)="toggleMobileMenu()"
+            [attr.aria-expanded]="isMobileMenuOpen"
+            aria-label="Toggle navigation menu"
+            class="relative p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-900 transition-all duration-200"
+          >
+            <!-- Hamburger Icon -->
+            <div class="w-6 h-6 flex flex-col justify-center items-center">
+              <span class="block w-5 h-0.5 bg-current transform transition-all duration-300"
+                    [class.rotate-45]="isMobileMenuOpen"
+                    [class.translate-y-1.5]="isMobileMenuOpen"></span>
+              <span class="block w-5 h-0.5 bg-current mt-1 transform transition-all duration-300"
+                    [class.opacity-0]="isMobileMenuOpen"></span>
+              <span class="block w-5 h-0.5 bg-current mt-1 transform transition-all duration-300"
+                    [class.-rotate-45]="isMobileMenuOpen"
+                    [class.-translate-y-1.5]="isMobileMenuOpen"></span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Menu -->
+    <div class="md:hidden transition-all duration-300 ease-in-out"
+         [class.max-h-0]="!isMobileMenuOpen"
+         [class.max-h-64]="isMobileMenuOpen"
+         [class.opacity-0]="!isMobileMenuOpen"
+         [class.opacity-100]="isMobileMenuOpen"
+         style="overflow: hidden;">
+      <div class="px-2 pt-2 pb-3 space-y-1 bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm rounded-lg mt-2 border border-gray-200/20 dark:border-gray-700/20">
+        <a 
+          *ngFor="let item of navigationItems" 
+          [routerLink]="item.route"
+          routerLinkActive="mobile-active-nav-link"
+          [routerLinkActiveOptions]="{exact: item.route === '/'}"
+          (click)="closeMobileMenu()"
+          class="mobile-nav-link flex items-center space-x-3 px-3 py-2 rounded-lg text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 transition-all duration-200"
+        >
+          <ng-container [ngSwitch]="item.icon">
+            <svg *ngSwitchCase="'home'" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+            </svg>
+            <svg *ngSwitchCase="'projects'" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+            </svg>
+            <svg *ngSwitchCase="'blog'" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+            </svg>
+            <svg *ngSwitchCase="'contact'" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+          </ng-container>
+          <span>{{ item.label }}</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Navigation Progress Indicator -->
+  <div class="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-500 to-emerald-500 transform transition-all duration-500 ease-out"
+       [style.width.%]="scrollProgress"></div>
+</header>
+

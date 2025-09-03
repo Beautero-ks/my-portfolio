@@ -1,0 +1,11 @@
+<button
+  (click)="btnClick.emit()"
+  [ngClass]="{
+    'bg-blue-600 hover:bg-blue-700': color === 'primary',
+    'bg-gray-600 hover:bg-gray-700': color === 'secondary',
+    'bg-purple-600 hover:bg-purple-700': color === 'accent'
+  }"
+  class="text-white px-4 py-2 rounded transition-colors duration-300"
+>
+  {{ text }}
+</button>
